@@ -8,7 +8,7 @@ public class Kunde {
         nachfolger = null;
     }
 
-    // 
+    //
     public Kunde(String pName) {
         name = pName;
         nachfolger = null;
