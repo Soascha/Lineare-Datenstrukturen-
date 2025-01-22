@@ -1,10 +1,8 @@
 public class Warteschlange {
     private Kunde erster;  // Gib den ersten Kunden in der Warteschlange an
-    private Kunde letzter;
     // Konstruktor
     public Warteschlange() {
         erster = null;
-        letzter = null;
     }
 
     // Rückgabe des ersten Kunden
