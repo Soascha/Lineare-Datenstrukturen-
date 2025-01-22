@@ -1,48 +1,40 @@
-public class Warteschlange {
-    private Kunde erster;  // Gib den ersten Kunden in der Warteschlange an
-    private Kunde letzter;
-    // Konstruktor
-    public Warteschlange() {
+public class Warteschlange<T>{
+    private Knoten erster;
+    /*
+     * Konstruktor
+     * Erstellt leere Queue
+     */
+    public Warteschlange(){
         erster = null;
-        letzter = null;
     }
-
-    // Rückgabe des ersten Kunden
-    public Kunde getErsten() {
-        return erster;
+    /*
+     * Gibt das erste Objekt der Queue zurück
+     */
+    public T gibErsten(){
+        return erster.getZeigeAuf();
     }
-
-    // Setzen des ersten Kunden
-    public void setErsten(Kunde pKunde) {
-        erster = pKunde;
-    }
-
-    // Hinzufügen eines Kunden am Ende der Warteschlange
-    public void einfuegen(Kunde pKunde) {
-        if (erster == null) {
-            // Wenn die Warteschlange leer ist, wird der Kunde der erste
-            erster = pKunde;
-        } else {
-            // Sonst zum letzten Kunden führenund den neuen anhängen
-            Kunde aktueller = erster;
-
-            while (aktueller.getNachfolger() != null) {  // Schleife läuft so lange, wie es einen Nachfolger gibt
-                aktueller = aktueller.getNachfolger(); // Nchfolger wird zu aktueller
-            }
-            aktueller.setNachfolger(pKunde); // Mit aktueller.setNachfolger(pKunde) wird der neue Kunde (pKunde) als Nachfolger des letzten Kunden gesetzt.
-        }
-    }
-
-    // Entfernen des ersten Kunden aus der Warteschlange
-    public void entfernen() {
-        if (erster != null) {
-            // Der Nachfolger des ersten Kunden wird der neue erste
+    /*
+     * Ertfernt das erste Objekt aus der Queue
+     */
+    public void getErsten(){
+        if( erster.getNachfolger()!= null){
             erster = erster.getNachfolger();
         }
     }
-
-    // Überprüfen, ob die Warteschlange leer ist
-    public boolean gibLeer() {
-        return erster == null;
+    /*
+     * Fügt ein neues Element am Ende der Queue hinzu
+     */
+    public void einfuegen(T pKunde) {
+        Knoten aktuellerKunde = erster;
+        Knoten neuerKunde = new Knoten(pKunde);
+        neuerKunde.setNachfolger(null);
+        if (erster == null) {
+            erster = neuerKunde;
+        } else {
+            while (aktuellerKunde.getNachfolger() != null) {
+                aktuellerKunde = aktuellerKunde.getNachfolger();
+            }
+            aktuellerKunde.setNachfolger(neuerKunde);
+        }
     }
 }

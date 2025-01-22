@@ -18,6 +18,7 @@ public class Verwaltung {
             System.out.println("[1]Hinzufuegen");
             System.out.println("[2]Ersten Auslesen");
             int option = scanner.nextInt();
+
             if(option==1) {
                 System.out.println("Wie viele?");
                 option = scanner.nextInt();
@@ -26,8 +27,7 @@ public class Verwaltung {
 
                 }
             }else if (option==2){
-                System.out.println( warteschlange.getErsten().getName());
-                warteschlange.entfernen();
+
             }
         }
     }
