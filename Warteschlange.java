@@ -17,21 +17,11 @@ public class Warteschlange {
         erster = pKunde;
     }
 
-    public Kunde getLetzten() {
-        return letzter;
-    }
-
-    // Setzen des ersten Kunden
-    public void setLetzter(Kunde pKunde) {
-        letzter = pKunde;
-    }
-
     // Hinzufügen eines Kunden am Ende der Warteschlange
     public void einfuegen(Kunde pKunde) {
         if (erster == null) {
             // Wenn die Warteschlange leer ist, wird der Kunde der erste
             erster = pKunde;
-            letzter =
         } else {
             // Sonst zum letzten Kunden führenund den neuen anhängen
             Kunde aktueller = erster;
