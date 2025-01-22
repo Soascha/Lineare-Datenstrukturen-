@@ -1,4 +1,4 @@
-private class Knoten{
+public class Knoten<T>{
     private T zeigeAuf;                             //Speichert das Objekt auf welches der Knoten zeigt
     private Knoten nachfolger;                      //Speichert den nachfolgenden Knoten
 
@@ -14,5 +14,4 @@ private class Knoten{
     public T getZeigeAuf(){
         return zeigeAuf;
     }
-}
 }
