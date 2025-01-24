@@ -7,11 +7,15 @@ public class Warteschlange<T>{
     public Warteschlange(){
         erster = null;
     }
+    public T gibNächsten(){
+        return (T)
+
+    }
     /*
      * Gibt das erste Objekt der Queue zurück
      */
     public T gibErsten(){
-        return erster.getZeigeAuf();
+        return (T)erster.getZeigeAuf();
     }
     /*
      * Ertfernt das erste Objekt aus der Queue
