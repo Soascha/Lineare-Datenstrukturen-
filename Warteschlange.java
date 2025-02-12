@@ -1,38 +1,41 @@
 public class Warteschlange<T>{
-    private Knoten kunde;
+    private Knoten erster;
+    private Knoten letzter;
     /*
      * Konstruktor
      * Erstellt leere Queue
      */
     public Warteschlange(){
-        kunde = null;
+        erster = null;
     }
 
-
+    private Knoten gibLetzten(){
+        return letzter;
+    }
 
     /*
      * Gibt das erste Objekt der Queue zurück
      */
     public T gibErsten(){
-        return (T)kunde.getZeigeAuf();
+        return (T)erster.getZeigeAuf();
     }
     /*
      * Ertfernt das erste Objekt aus der Queue
      */
     public void getErsten(){
-        if( kunde.getNachfolger()!= null){
-            kunde = kunde.getNachfolger();
+        if( erster.getNachfolger()!= null){
+            erster = erster.getNachfolger();
         }
     }
     /*
      * Fügt ein neues Element am Ende der Queue hinzu
      */
     public void queue (T pKunde) {
-        Knoten aktuellerKunde = kunde;
+        Knoten aktuellerKunde = erster;
         Knoten neuerKunde = new Knoten(pKunde);
         neuerKunde.setNachfolger(null);
-        if (kunde == null) {
-            kunde = neuerKunde;
+        if (erster == null) {
+            erster = neuerKunde;
         } else {
             while (aktuellerKunde.getNachfolger() != null) {
                 aktuellerKunde = aktuellerKunde.getNachfolger();
@@ -40,10 +43,23 @@ public class Warteschlange<T>{
             aktuellerKunde.setNachfolger(neuerKunde);
         }
     }
-    public void dequeue (T pKunde) {
-        Knoten aktuellerKunde = kunde;
-        if ( kunde != null) {
-             kunde = aktuellerKunde.getNachfolger();
+    public void enqueue (T pKunde) {
+        Knoten neuerKnoten = new Knoten(pKunde);
+        neuerKnoten.setNachfolger(null);
+        if (letzter != null) {
+            letzter.setNachfolger(neuerKnoten);
+            letzter = neuerKnoten;
+
+        } else {
+            erster = neuerKnoten;
+            letzter = neuerKnoten;
+        }
+    }
+
+    public void dequeue() {
+        Knoten aktuellerKunde = erster;
+        if ( erster != null) {
+            erster = aktuellerKunde.getNachfolger();
         }
     }
 }

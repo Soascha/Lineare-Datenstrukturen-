@@ -17,23 +17,33 @@ public class Verwaltung {
             System.out.println("====== HAUPTMENÜ ======");
             System.out.println("[1] Hinzufuegen");
             System.out.println("[2] Ersten Auslesen");
+            System.out.println("[3] Ersten Löschen");
+            System.out.println("[4] Manuell hinzufügen");
             int option = scanner.nextInt();
 
             if (option == 1) {
                 System.out.println("Wie viele Kunden sollen hinzugefügt werden?");
                 option = scanner.nextInt();
                 for (int i = 0; i < option; i++) {
-                    warteschlange.queue(new Kunde("" + i));
-
+                    warteschlange.enqueue(new Kunde("" + i));
                 }
-            } else if (option == 2) {
-                System.out.println(warteschlange.gibErsten());
-                    if () {
-
-
-
-                    }
             }
-        }
+            if (option == 2) {
+                //option = scanner.nextInt();
+               // warteschlange.gibErsten();
+                System.out.println(warteschlange.gibErsten());
+            }
+            if (option == 3) {
+                System.out.println("Lösche ersten Kunden");
+                warteschlange.dequeue();
+            }
+            if (option == 4) {
+                System.out.println("Namen angeben");
+                String Namen = scanner.nextLine();
+                System.out.println(Namen);
+                Kunde hilfe = new Kunde(Namen);
+                warteschlange.enqueue(hilfe);
+            }
     }
+}
 }
