@@ -1,6 +1,6 @@
 public class Warteschlange<T>{
-    private Knoten erster;
-    private Knoten letzter;
+    private Node erster;
+    private Node letzter;
     /*
      * Konstruktor
      * Erstellt leere Queue
@@ -9,7 +9,7 @@ public class Warteschlange<T>{
         erster = null;
     }
 
-    private Knoten gibLetzten(){
+    private Node gibLetzten(){
         return letzter;
     }
 
@@ -31,8 +31,8 @@ public class Warteschlange<T>{
      * Fügt ein neues Element am Ende der Queue hinzu
      */
     public void queue (T pKunde) {
-        Knoten aktuellerKunde = erster;
-        Knoten neuerKunde = new Knoten(pKunde);
+        Node aktuellerKunde = erster;
+        Node neuerKunde = new Node(pKunde);
         neuerKunde.setNachfolger(null);
         if (erster == null) {
             erster = neuerKunde;
@@ -44,7 +44,7 @@ public class Warteschlange<T>{
         }
     }
     public void enqueue (T pKunde) {
-        Knoten neuerKnoten = new Knoten(pKunde);
+        Node neuerKnoten = new Node(pKunde);
         neuerKnoten.setNachfolger(null);
         if (letzter != null) {
             letzter.setNachfolger(neuerKnoten);
@@ -57,7 +57,7 @@ public class Warteschlange<T>{
     }
 
     public void dequeue() {
-        Knoten aktuellerKunde = erster;
+        Node aktuellerKunde = erster;
         if ( erster != null) {
             erster = aktuellerKunde.getNachfolger();
         }
