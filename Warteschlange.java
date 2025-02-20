@@ -30,36 +30,36 @@ public class Warteschlange<T>{
     /*
      * Fügt ein neues Element am Ende der Queue hinzu
      */
-    public void queue (T pKunde) {
-        Node aktuellerKunde = erster;
-        Node neuerKunde = new Node(pKunde);
-        neuerKunde.setNachfolger(null);
+    public void queue (T pInhalt) {
+        Node akutellesElement = erster;
+        Node neuesElement = new Node(pInhalt);
+        neuesElement.setNachfolger(null);
         if (erster == null) {
-            erster = neuerKunde;
+            erster = neuesElement;
         } else {
-            while (aktuellerKunde.getNachfolger() != null) {
-                aktuellerKunde = aktuellerKunde.getNachfolger();
+            while (akutellesElement.getNachfolger() != null) {
+                akutellesElement = akutellesElement.getNachfolger();
             }
-            aktuellerKunde.setNachfolger(neuerKunde);
+            akutellesElement.setNachfolger(neuesElement);
         }
     }
-    public void enqueue (T pKunde) {
-        Node neuerKnoten = new Node(pKunde);
-        neuerKnoten.setNachfolger(null);
+    public void enqueue (T pElement) {
+        Node neuerNode = new Node(pElement);
+        neuerNode.setNachfolger(null);
         if (letzter != null) {
-            letzter.setNachfolger(neuerKnoten);
-            letzter = neuerKnoten;
+            letzter.setNachfolger(neuerNode);
+            letzter = neuerNode;
 
         } else {
-            erster = neuerKnoten;
-            letzter = neuerKnoten;
+            erster = neuerNode;
+            letzter = neuerNode;
         }
     }
 
     public void dequeue() {
-        Node aktuellerKunde = erster;
+        Node aktuellesElement = erster;
         if ( erster != null) {
-            erster = aktuellerKunde.getNachfolger();
+            erster = aktuellesElement.getNachfolger();
         }
     }
 }

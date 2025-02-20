@@ -22,10 +22,10 @@ public class Verwaltung {
             int option = scanner.nextInt();
 
             if (option == 1) {
-                System.out.println("Wie viele Kunden sollen hinzugefügt werden?");
+                System.out.println("Wie viele Elemente sollen hinzugefügt werden?");
                 option = scanner.nextInt();
                 for (int i = 0; i < option; i++) {
-                    warteschlange.enqueue(new Kunde("" + i));
+                    warteschlange.enqueue(new Element("" + i));
                 }
             }
             if (option == 2) {
@@ -34,14 +34,14 @@ public class Verwaltung {
                 System.out.println(warteschlange.gibErsten());
             }
             if (option == 3) {
-                System.out.println("Lösche ersten Kunden");
+                System.out.println("Lösche erstes Element");
                 warteschlange.dequeue();
             }
             if (option == 4) {
                 System.out.println("Namen angeben");
                 String Namen = scanner.nextLine();
                 System.out.println(Namen);
-                Kunde hilfe = new Kunde(Namen);
+                Element hilfe = new Element(Namen);
                 warteschlange.enqueue(hilfe);
             }
     }
