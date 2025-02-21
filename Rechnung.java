@@ -1,18 +1,31 @@
 public class Rechnung {
 
-    private int rechnungsnr, betrag;
+    private int rechnungsnr;
+    private int betrag;
     private String datum;
 
-    public Rechnung(String pDatum, int pRechnungsnr, int pBetrag){
+    public Rechnung(String pDatum, int pRechnungsnr, int pBetrag) {
+        datum = pDatum;
+        rechnungsnr = pRechnungsnr;
+        betrag = pBetrag;
+    }
+    public void setRechnungsnr(int pRechnungsnr) {
+        rechnungsnr = pRechnungsnr;
+    }
+    public int getRechnungsnr() {
+        return rechnungsnr;
+    }
+    public void setBetrag(int pBetrag) {
+        betrag = pBetrag;
+    }
+    public int getBetrag() {
+        return betrag;
+    }
+    public void setDatum(String pDatum) {
+        datum = pDatum;
+    }
 
+    public String getDatum() {
+        return datum;
     }
 }
-    public int getrechnungsnr(){
-        return 0;
-    }
-    public int getBetrag(){
-        return 0;
-    }
-    public int getDatum(){
-        return 0;
-    }

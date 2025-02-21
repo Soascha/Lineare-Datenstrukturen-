@@ -1,26 +1,26 @@
 
-public class ListNode<A> {
-    private A zeigeAuf; // Speichert das Objekt auf welches der Knoten zeigt
-    private ListNode<A> nachfolger; // Speichert den nachfolgenden Knoten
+public class ListNode<ContentType> {
+    private ContentType zeigeAuf; // Speichert das Objekt auf welches der Knoten zeigt
+    private ListNode<ContentType> nachfolger; // Speichert den nachfolgenden Knoten
 
-    public ListNode(A pZeigeAuf) {
+    public ListNode(ContentType pZeigeAuf) {
         this.zeigeAuf = pZeigeAuf;
         this.nachfolger = null;
     }
 
-    public ListNode<A> getNachfolger() {
+    public ListNode<ContentType> getNachfolger() {
         return nachfolger;
     }
 
-    public void setNachfolger(ListNode<A> pNachfolger) {
+    public void setNachfolger(ListNode<ContentType> pNachfolger) {
         this.nachfolger = pNachfolger;
     }
 
-    public A getZeigeAuf() {
+    public ContentType getZeigeAuf() {
         return zeigeAuf;
     }
 
-    public void setZeigeAuf(A pZeigeAuf) {
+    public void setZeigeAuf(ContentType pZeigeAuf) {
         this.zeigeAuf = pZeigeAuf;
     }
 }

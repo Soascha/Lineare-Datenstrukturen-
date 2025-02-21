@@ -1,5 +1,5 @@
 
-public class List <A> {
+public class List <ContentType> {
 
     public ListNode last; //letzter Knoten
     public ListNode current; //aktueller Knoten
@@ -11,8 +11,8 @@ public class List <A> {
         last = null;
     }
 
-    public void append(A pContent) {
-        ListNode<A> newNode = new ListNode<>(pContent);
+    public void append(ContentType pContent) {
+        ListNode<ContentType> newNode = new ListNode<>(pContent);
         if (isEmpty()) {
             // Wenn die Liste leer ist, wird das Element als erstes gesetzt
             first = newNode;
@@ -33,8 +33,8 @@ public class List <A> {
     }
 
     // Fügt ein neues Element in die Liste ein
-    public void insert(A pContent) {
-        ListNode<A> newNode = new ListNode<>(pContent);
+    public void insert(ContentType pContent) {
+        ListNode<ContentType> newNode = new ListNode<>(pContent);
         if (isEmpty()) {
             // Falls die Liste leer ist, wird der neue Knoten sowohl "first" als auch "last"
             first = newNode;
@@ -46,11 +46,11 @@ public class List <A> {
                 first = newNode; // Falls es das erste Element ist, wird "first" neu gesetzt
             } else {
                 // Sucht das Element vor "current", um den Zeiger anzupassen
-                ListNode<A> hilfe = first;
-                while (hilfe.getNachfolger() != current) {
-                    hilfe = hilfe.getNachfolger();
+                ListNode<ContentType> temporaer = first;
+                while (temporaer.getNachfolger() != current) {
+                    temporaer = temporaer.getNachfolger();
                 }
-                hilfe.setNachfolger(newNode.getNachfolger());// Verbindet den vorherigen Knoten mit dem neuen
+                temporaer.setNachfolger(newNode.getNachfolger());// Verbindet den vorherigen Knoten mit dem neuen
             }
         }
     }
@@ -77,14 +77,14 @@ public class List <A> {
                 }
             } else {
                 // Element mitten in der Liste entfernen
-                ListNode<A> hilfe = first;
+                ListNode<ContentType> temporaer = first;
                 // Läuft durch die Liste, um den Knoten vor "current" zu finden
-                while (hilfe.getNachfolger() != current) {
-                    hilfe = hilfe.getNachfolger();
+                while (temporaer.getNachfolger() != current) {
+                    temporaer = temporaer.getNachfolger();
                 }
-                hilfe.setNachfolger(current.getNachfolger()); // Der Knoten vor "current" überspringt "current"
+                temporaer.setNachfolger(current.getNachfolger()); // Der Knoten vor "current" überspringt "current"
                 if (current == last) {
-                    last = hilfe; // Falls das letzte Element entfernt wird
+                    last = temporaer; // Falls das letzte Element entfernt wird
                 }
                 current = current.getNachfolger();
             }
@@ -93,19 +93,18 @@ public class List <A> {
 
     // Prüft, ob ein aktuelles Element vorhanden ist
     public boolean hasAccess () {
-
         return current =! null; // "current" ist nicht null, wenn ein Element ausgewählt ist
     }
     // Gibt den Inhalt des aktuellen Elements zurück
-    public A getContent() {
+    public ContentType getContent() {
         if (hasAccess()) {
-            return (A) current.getZeigeAuf();
+            return (ContentType) current.getZeigeAuf();
         }
         return null; // Falls kein aktuelles Element vorhanden ist
     }
 
     // Setzt den Inhalt des aktuellen Elements
-    public void setContent(A pContent) {
+    public void setContent(ContentType pContent) {
         if (hasAccess()) {
             current.setZeigeAuf(pContent);
         }
