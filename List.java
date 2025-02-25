@@ -74,15 +74,15 @@ public class List <ContentType> {
 
     // Fügt ein neues Element in die Liste ein
     public void insert(ContentType pContent) {
-        ListNode<ContentType> newNode = new ListNode<>(pContent);
+        ListNode newNode = new ListNode<ContentType>(pContent);
         if (isEmpty()) {
             // Falls die Liste leer ist, wird der neue Knoten sowohl "first" als auch "last"
             first = newNode;
             current = newNode;
             last = newNode;
         } else if (hasAccess()) {
-            // Neues Element vor dem aktuellen einfügen
-            newNode.setNachfolger(current);
+            // Neues Element nach dem aktuellen eingefüg
+            current.setNachfolger(newNode);
             if (current == first) {
                 first = newNode; // Falls es das erste Element ist, wird "first" neu gesetzt
             } else {
