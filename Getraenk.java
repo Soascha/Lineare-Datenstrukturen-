@@ -5,7 +5,7 @@ public class Getraenk {
 
     public Getraenk(String pName, int pPreis){
         name = pName;
-        preis =pPreis;
+        preis = pPreis;
     }
 
     public void setName(String pName){
@@ -16,6 +16,6 @@ public class Getraenk {
     }
 
     public double getPreis(){
-        return 0;
+        return preis;
     }
 }
